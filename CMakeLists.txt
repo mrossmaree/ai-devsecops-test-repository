@@ -10,6 +10,7 @@ add_executable(
     test_application
     src/main.cpp
     src/account.cpp
+    src/customer.cpp
 )
 
 target_include_directories(
