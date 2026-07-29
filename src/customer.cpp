@@ -40,12 +40,27 @@ const std::string& Customer::getName() const {
     return name_;
 }
 
-void exportCustomerName(
+bool exportCustomerName(
     const Customer& customer,
-    char* destination
+    char* destination,
+    std::size_t destinationSize
 ) {
-    std::strcpy(
+    if (destination == nullptr || destinationSize == 0) {
+        return false;
+    }
+
+    const std::string& name = customer.getName();
+
+    if (name.length() >= destinationSize) {
+        destination[0] = '\0';
+        return false;
+    }
+
+    std::memcpy(
         destination,
-        customer.getName().c_str()
+        name.c_str(),
+        name.length() + 1
     );
+
+    return true;
 }

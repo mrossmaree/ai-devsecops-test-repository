@@ -13,7 +13,12 @@ int main() {
     const bool nameUpdated = customer.updateName("John Williams");
 
     char exportedName[20];
-    exportCustomerName(customer, exportedName);
+
+    const bool exportSuccessful = exportCustomerName(
+        customer,
+        exportedName,
+        sizeof(exportedName)
+    );
 
     std::cout << "Customer ID: "
               << customer.getCustomerId()
@@ -46,6 +51,10 @@ int main() {
     std::cout << "Balance: "
               << account.getBalance()
               << '\n';
+
+    std::cout << "Export successful: "
+          << exportSuccessful
+          << '\n';
 
     return 0;
 }

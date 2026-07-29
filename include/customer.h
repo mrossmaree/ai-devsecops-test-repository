@@ -2,6 +2,7 @@
 #define CUSTOMER_H
 
 #include <string>
+#include <cstddef>
 
 class Customer {
 public:
@@ -19,9 +20,10 @@ private:
     std::string name_;
 };
 
-void exportCustomerName(
+bool exportCustomerName(
     const Customer& customer,
-    char* destination
+    char* destination,
+    std::size_t destinationSize
 );
 
 #endif
