@@ -1,0 +1,54 @@
+name: Run AI DevSecOps Security Scan
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.c'
+      - '**/*.cpp'
+      - '**/*.cc'
+      - '**/*.cxx'
+      - '**/*.h'
+      - '**/*.hpp'
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.c'
+      - '**/*.cpp'
+      - '**/*.cc'
+      - '**/*.cxx'
+      - '**/*.h'
+      - '**/*.hpp'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ml3-state-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  security-scan:
+    name: security-scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout target project
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+
+      - name: Run AI DevSecOps Framework
+        uses: mrossmaree/ai-driven-devsecops-framework@main
+        with:
+          scan-path: "."
+          ml3-minimum-history: "30"
+          ml3-retraining-interval: "20"
+          ml3-contamination: "0.10"
+          ml3-state-branch: "devsecops-state"
