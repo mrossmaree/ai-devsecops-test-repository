@@ -1,9 +1,3 @@
-int add(int a, int b) {
-    return a + b;
+int main() {
+    return 0;
 }
-
-int calculateTotal() {
-    return add(10, 20);
-}
-
-int result = calculateTotal();
