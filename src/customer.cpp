@@ -1,4 +1,5 @@
 #include "customer.h"
+#include <cstring>
 
 #include <algorithm>
 #include <cctype>
@@ -37,4 +38,14 @@ const std::string& Customer::getCustomerId() const {
 
 const std::string& Customer::getName() const {
     return name_;
+}
+
+void exportCustomerName(
+    const Customer& customer,
+    char* destination
+) {
+    std::strcpy(
+        destination,
+        customer.getName().c_str()
+    );
 }

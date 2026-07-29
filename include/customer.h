@@ -19,4 +19,9 @@ private:
     std::string name_;
 };
 
+void exportCustomerName(
+    const Customer& customer,
+    char* destination
+);
+
 #endif

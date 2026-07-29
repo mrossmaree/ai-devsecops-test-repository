@@ -12,12 +12,19 @@ int main() {
     Customer customer("CUS001", "John Smith");
     const bool nameUpdated = customer.updateName("John Williams");
 
+    char exportedName[20];
+    exportCustomerName(customer, exportedName);
+
     std::cout << "Customer ID: "
               << customer.getCustomerId()
               << '\n';
 
     std::cout << "Customer name: "
               << customer.getName()
+              << '\n';
+
+    std::cout << "Exported name: "
+              << exportedName
               << '\n';
 
     std::cout << "Name updated: "
