@@ -1,3 +1,4 @@
 timestamp,ml3_run_id,github_run_id,commit_sha,total_files_scanned,total_alerts,high_alerts,medium_alerts,low_alerts,high_commit_risk,medium_commit_risk,low_commit_risk,alerts_per_file,commit_risk_status,commit_summary_status,cppcheck_status,clang_status,ml3_scoring_blocked,ml3_scoring_block_reason,ml3_outcome,ml3_reason,ml3_failure_reason
 1785334211,gh_run:30459449393,30459449393,845cdce0270e924c31066fc47dc420a6ba9828ef,1,0,0,0,0,1,0,0,0.0,OK,OK,OK,OK,False,,NOT_AVAILABLE,INSUFFICIENT_HISTORY,
 1785336014,gh_run:30461943622,30461943622,3c08504ab8f2c0804d326b45738ca31421165ff4,1,0,0,0,0,1,0,1,0.0,OK,OK,OK,OK,False,,NOT_AVAILABLE,INSUFFICIENT_HISTORY,
+1785336754,gh_run:30462979065,30462979065,5a23ae0c5a112e60e8630fcea93d86824293e9bc,1,0,0,0,0,1,0,0,0.0,OK,OK,OK,OK,False,,NOT_AVAILABLE,INSUFFICIENT_HISTORY,
