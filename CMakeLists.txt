@@ -12,6 +12,7 @@ add_executable(
     src/account.cpp
     src/customer.cpp
     src/logger.cpp
+    src/transaction_history.cpp
 )
 
 target_include_directories(
