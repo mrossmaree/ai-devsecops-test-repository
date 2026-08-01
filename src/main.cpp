@@ -2,6 +2,7 @@
 
 #include "account.h"
 #include "customer.h"
+#include "logger.h"
 
 int main() {
     Account account("ACC001", 1000.0);
@@ -19,6 +20,12 @@ int main() {
         exportedName,
         sizeof(exportedName)
     );
+
+    const char* logMessage = nullptr;
+    if (exportSuccessful) {
+        logMessage = "Customer export completed";
+    }
+    writeLog(logMessage);
 
     std::cout << "Customer ID: "
               << customer.getCustomerId()

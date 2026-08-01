@@ -11,6 +11,7 @@ add_executable(
     src/main.cpp
     src/account.cpp
     src/customer.cpp
+    src/logger.cpp
 )
 
 target_include_directories(
