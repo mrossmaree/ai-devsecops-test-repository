@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "account.h"
+#include "balance_history.h"
 #include "customer.h"
 #include "logger.h"
 #include "transaction_history.h"
@@ -33,6 +34,7 @@ int main() {
     writeLog(logMessage);
 
     const std::string& latestTransaction = history.getTransaction(2);
+    const double previousBalance = getPreviousBalance();
 
     std::cout << "Customer ID: "
               << customer.getCustomerId()
@@ -72,6 +74,10 @@ int main() {
 
     std::cout << "Latest transaction: "
               << latestTransaction
+              << '\n';
+
+    std::cout << "Previous balance: "
+              << previousBalance
               << '\n';
 
     return 0;

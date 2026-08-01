@@ -10,6 +10,7 @@ add_executable(
     test_application
     src/main.cpp
     src/account.cpp
+    src/balance_history.cpp
     src/customer.cpp
     src/logger.cpp
     src/transaction_history.cpp
