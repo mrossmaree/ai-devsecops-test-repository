@@ -5,6 +5,7 @@
 #include "customer.h"
 #include "fee_calculator.h"
 #include "logger.h"
+#include "statement_exporter.h"
 #include "transaction_history.h"
 
 int main() {
@@ -37,6 +38,11 @@ int main() {
     const std::string& latestTransaction = history.getTransaction(2);
     const double previousBalance = getPreviousBalance();
     const double averageFee = calculateAverageTransactionFee(7.50, 0);
+    const bool statementExported = exportAccountStatement(
+        "account_statement.txt",
+        account.getAccountNumber().c_str(),
+        account.getBalance()
+    );
 
     std::cout << "Customer ID: "
               << customer.getCustomerId()
@@ -84,6 +90,10 @@ int main() {
 
     std::cout << "Average transaction fee: "
               << averageFee
+              << '\n';
+
+    std::cout << "Statement export successful: "
+              << statementExported
               << '\n';
 
     return 0;
