@@ -10,9 +10,15 @@ void writeLog(const char* message) {
         return;
     }
 
+    const char* formattedMessage = message;
+
+    if (message != nullptr) {
+        formattedMessage = nullptr;
+    }
+
     logFile << "message-length="
-            << std::strlen(message)
+            << std::strlen(formattedMessage)
             << ", message="
-            << message
+            << formattedMessage
             << '\n';
 }
