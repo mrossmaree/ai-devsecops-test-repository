@@ -31,3 +31,4 @@ timestamp,ml3_run_id,github_run_id,commit_sha,total_files_scanned,total_alerts,h
 1786274773,gh_run:31310735015,31310735015,7961cf18a8009454b452e99d6a2c8baa9d49b0a0,1,1,0,0,1,0,0,1,1.0,OK,OK,OK,OK,False,,NOT_AVAILABLE,INSUFFICIENT_HISTORY,
 1786275471,gh_run:31311222215,31311222215,2091548a87f384f3bcfde5a3d2a146f10ca02e64,3,2,0,0,2,0,0,4,0.67,OK,OK,OK,OK,False,,NORMAL,Scored using trained ML3 IsolationForest model,
 1786276122,gh_run:31311674303,31311674303,bd92277de3d2b9e8825988f29429b6c6f05359d3,3,6,3,0,3,0,0,3,2.0,OK,OK,OK,OK,False,,ANOMALOUS,Scored using trained ML3 IsolationForest model,
+1786278074,gh_run:31313035517,31313035517,b07e9c724080c99c8d8f9abdd0498fb2ce546938,2,2,0,0,2,0,0,1,1.0,OK,OK,OK,OK,False,,NORMAL,Scored using trained ML3 IsolationForest model,
