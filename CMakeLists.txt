@@ -17,6 +17,7 @@ add_executable(
     src/receipt_processor.cpp
     src/statement_exporter.cpp
     src/transaction_history.cpp
+    src/transaction_importer.cpp
 )
 
 target_include_directories(

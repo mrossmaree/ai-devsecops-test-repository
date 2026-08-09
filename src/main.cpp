@@ -8,6 +8,7 @@
 #include "receipt_processor.h"
 #include "statement_exporter.h"
 #include "transaction_history.h"
+#include "transaction_importer.h"
 
 int main() {
     Account account("ACC001", 1000.0);
@@ -63,6 +64,11 @@ int main() {
         customer.createDisplayName();
 
     const std::string firstTransaction = history.getFirstTransactionAfterUpdate();
+
+    const bool transactionImported = importTransaction(
+        "ACCOUNT-123456789",
+        "Monthly transfer",
+        5);
 
     std::cout << "Customer ID: "
               << customer.getCustomerId()
@@ -130,6 +136,10 @@ int main() {
     
     std::cout << "First transaction: "
           << firstTransaction
+          << '\n';
+
+    std::cout << "Transaction imported: "
+          << transactionImported
           << '\n';
 
     return 0;
