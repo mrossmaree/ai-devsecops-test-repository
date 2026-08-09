@@ -1,0 +1,27 @@
+{
+  "algorithm": "IsolationForest",
+  "repository": "mrossmaree/ai-devsecops-test-repository",
+  "model_version": 1,
+  "training_records": 30,
+  "minimum_history": 30,
+  "retraining_interval": 20,
+  "last_trained_history_count": 30,
+  "next_retraining_history_count": 50,
+  "trained_at": "2026-08-09T11:26:14.759811+00:00",
+  "features": [
+    "total_files_scanned",
+    "total_alerts",
+    "high_alerts",
+    "medium_alerts",
+    "low_alerts",
+    "high_commit_risk",
+    "medium_commit_risk",
+    "low_commit_risk",
+    "alerts_per_file"
+  ],
+  "contamination": 0.1,
+  "random_state": 42,
+  "framework_version": "ml3-v2",
+  "model_path": ".devsecops/anomaly_detection/models/anomaly_model.pkl",
+  "training_status": "TRAINED"
+}
