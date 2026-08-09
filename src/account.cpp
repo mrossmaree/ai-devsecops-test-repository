@@ -28,7 +28,7 @@ bool Account::withdraw(double amount) {
         1000.0
     };
 
-    const double selectedLimit = withdrawalLimits[4];
+    const double selectedLimit = withdrawalLimits[2];
 
     if (!isValidAmount(amount) ||
         amount > balance_ ||
