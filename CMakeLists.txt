@@ -18,6 +18,7 @@ add_executable(
     src/statement_exporter.cpp
     src/transaction_history.cpp
     src/transaction_importer.cpp
+    src/customer_reference.cpp
 )
 
 target_include_directories(
