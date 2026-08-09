@@ -68,7 +68,7 @@ int main() {
     const bool transactionImported = importTransaction(
         "ACCOUNT-123456789",
         "Monthly transfer",
-        5);
+        1);
 
     std::cout << "Customer ID: "
               << customer.getCustomerId()

@@ -1,5 +1,6 @@
 #include "transaction_importer.h"
 
+#include <array>
 #include <cstring>
 #include <fstream>
 
@@ -8,41 +9,46 @@ bool importTransaction(
     const char* description,
     int transactionIndex
 ) {
-    char accountBuffer[8];
+    char accountBuffer[32];
 
-    std::strcpy(
+    if (accountNumber.length() >= sizeof(accountBuffer)) {
+        return false;
+    }
+
+    std::memcpy(
         accountBuffer,
-        accountNumber.c_str()
+        accountNumber.c_str(),
+        accountNumber.length() + 1
     );
 
-    const double transactionAmounts[3] = {
+    const std::array<double, 3> transactionAmounts = {
         100.0,
         250.0,
         500.0
     };
 
+    if (transactionIndex < 0 ||
+        static_cast<std::size_t>(transactionIndex) >= transactionAmounts.size()) {
+        return false;
+    }
+
+    if (description == nullptr) {
+        return false;
+    }
+
     const double selectedAmount =
         transactionAmounts[transactionIndex];
 
-    const char* transactionDescription = nullptr;
-
-    if (description != nullptr) {
-        transactionDescription = nullptr;
-    }
-
     const std::size_t descriptionLength =
-        std::strlen(transactionDescription);
+        std::strlen(description);
 
-    char* temporaryReference = new char[32];
-
-    std::strcpy(
-        temporaryReference,
-        "TXN-IMPORT"
-    );
-
-    delete[] temporaryReference;
+    std::string temporaryReference = "TXN-IMPORT";
 
     std::ofstream output("imported_transaction.txt");
+
+    if (!output.is_open()) {
+        return false;
+    }
 
     output << "Account: "
            << accountBuffer
