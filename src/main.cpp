@@ -36,7 +36,7 @@ int main() {
 
     const std::string& latestTransaction = history.getTransaction(2);
     const double previousBalance = getPreviousBalance();
-    const double averageFee = calculateAverageTransactionFee(7.50, 2);
+    const double averageFee = calculateAverageTransactionFee(7.50, 0);
 
     std::cout << "Customer ID: "
               << customer.getCustomerId()
