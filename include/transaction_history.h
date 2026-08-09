@@ -10,6 +10,8 @@ public:
     void addTransaction(std::string transaction);
     const std::string& getTransaction(std::size_t index) const;
     [[nodiscard]] std::size_t size() const;
+    
+    double getTransactionAmount(bool transactionFound) const;
 
 private:
     std::vector<std::string> transactions_;

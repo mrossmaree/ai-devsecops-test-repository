@@ -37,6 +37,8 @@ int main() {
     writeLog(logMessage);
 
     const std::string& latestTransaction = history.getTransaction(2);
+
+    const double transactionAmount = history.getTransactionAmount(false);
     const double previousBalance = getPreviousBalance();
     const double averageFee = calculateAverageTransactionFee(7.50, 0);
     const bool receiptProcessed = processTransactionReceipt("RCPT-1001", 12.50);
@@ -86,9 +88,17 @@ int main() {
               << latestTransaction
               << '\n';
 
-    std::cout << "Previous balance: "
-              << previousBalance
-              << '\n';
+    std::cout << "Latest transaction: "
+          << latestTransaction
+          << '\n';
+
+    std::cout << "Transaction amount: "
+          << transactionAmount
+          << '\n';
+
+        std::cout << "Previous balance: "
+            << previousBalance
+            << '\n';
 
     std::cout << "Average transaction fee: "
               << averageFee
