@@ -76,7 +76,9 @@ std::string Customer::createDisplayName() const {
         name_.c_str()
     );
 
+    const std::string result(displayName);
+
     delete[] displayName;
 
-    return std::string(displayName);
+    return result;
 }
