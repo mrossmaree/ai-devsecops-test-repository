@@ -4,21 +4,19 @@
 #include <fstream>
 
 void writeLog(const char* message) {
+    if (message == nullptr) {
+        return;
+    }
+
     std::ofstream logFile("application.log", std::ios::app);
 
     if (!logFile.is_open()) {
         return;
     }
 
-    const char* formattedMessage = message;
-
-    if (message != nullptr) {
-        formattedMessage = nullptr;
-    }
-
     logFile << "message-length="
-            << std::strlen(formattedMessage)
+            << std::strlen(message)
             << ", message="
-            << formattedMessage
+            << message
             << '\n';
 }
