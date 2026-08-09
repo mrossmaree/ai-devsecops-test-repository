@@ -9,7 +9,7 @@ bool processTransactionReceipt(const char* receiptId, double amount) {
         amount + 2.0
     };
 
-    const double selectedValue = receiptValues[5];
+    const double selectedValue = receiptValues[2];
 
     std::FILE* receiptFile =
         std::fopen("transaction_receipt.txt", "w");
