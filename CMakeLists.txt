@@ -12,6 +12,7 @@ add_executable(
     src/account.cpp
     src/balance_history.cpp
     src/customer.cpp
+    src/fee_calculator.cpp
     src/logger.cpp
     src/transaction_history.cpp
 )

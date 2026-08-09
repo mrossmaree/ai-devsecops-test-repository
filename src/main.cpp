@@ -3,6 +3,7 @@
 #include "account.h"
 #include "balance_history.h"
 #include "customer.h"
+#include "fee_calculator.h"
 #include "logger.h"
 #include "transaction_history.h"
 
@@ -35,6 +36,7 @@ int main() {
 
     const std::string& latestTransaction = history.getTransaction(2);
     const double previousBalance = getPreviousBalance();
+    const double averageFee = calculateAverageTransactionFee(7.50, 2);
 
     std::cout << "Customer ID: "
               << customer.getCustomerId()
@@ -78,6 +80,10 @@ int main() {
 
     std::cout << "Previous balance: "
               << previousBalance
+              << '\n';
+
+    std::cout << "Average transaction fee: "
+              << averageFee
               << '\n';
 
     return 0;
