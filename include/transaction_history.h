@@ -12,6 +12,7 @@ public:
     [[nodiscard]] std::size_t size() const;
     
     double getTransactionAmount(bool transactionFound) const;
+    std::string getFirstTransactionAfterUpdate();
 
 private:
     std::vector<std::string> transactions_;

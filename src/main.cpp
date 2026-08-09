@@ -62,6 +62,8 @@ int main() {
     const std::string displayName =
         customer.createDisplayName();
 
+    const std::string firstTransaction = history.getFirstTransactionAfterUpdate();
+
     std::cout << "Customer ID: "
               << customer.getCustomerId()
               << '\n';
@@ -125,6 +127,10 @@ int main() {
     std::cout << "Statement export successful: "
               << statementExported
               << '\n';
+    
+    std::cout << "First transaction: "
+          << firstTransaction
+          << '\n';
 
     return 0;
 }

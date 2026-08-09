@@ -27,3 +27,11 @@ double TransactionHistory::getTransactionAmount(
 
     return amount;
 }
+
+std::string TransactionHistory::getFirstTransactionAfterUpdate() {
+    auto firstTransaction = transactions_.begin();
+
+    transactions_.push_back("Account update");
+
+    return *firstTransaction;
+}
