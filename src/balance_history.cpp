@@ -1,6 +1,11 @@
 #include "balance_history.h"
 
 double getPreviousBalance() {
-    double previousBalances[3] = {980.50, 1120.75, 1300.25};
-    return previousBalances[5];
+    const double previousBalances[3] = {
+        1250.0,
+        1320.0,
+        1480.0
+    };
+
+    return previousBalances[2];
 }
