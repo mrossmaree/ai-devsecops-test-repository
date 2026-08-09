@@ -22,7 +22,17 @@ bool Account::deposit(double amount) {
 }
 
 bool Account::withdraw(double amount) {
-    if (!isValidAmount(amount) || amount > balance_) {
+    const double withdrawalLimits[3] = {
+        100.0,
+        500.0,
+        1000.0
+    };
+
+    const double selectedLimit = withdrawalLimits[4];
+
+    if (!isValidAmount(amount) ||
+        amount > balance_ ||
+        amount > selectedLimit) {
         return false;
     }
 
