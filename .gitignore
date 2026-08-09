@@ -3,7 +3,7 @@ build/
 
 # Log files
 *.log
-account_statement.txt
+*.txt
 
 # macOS
 .DS_Store

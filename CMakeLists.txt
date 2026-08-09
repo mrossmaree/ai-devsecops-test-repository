@@ -14,6 +14,7 @@ add_executable(
     src/customer.cpp
     src/fee_calculator.cpp
     src/logger.cpp
+    src/receipt_processor.cpp
     src/statement_exporter.cpp
     src/transaction_history.cpp
 )

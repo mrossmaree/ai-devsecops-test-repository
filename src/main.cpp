@@ -5,6 +5,7 @@
 #include "customer.h"
 #include "fee_calculator.h"
 #include "logger.h"
+#include "receipt_processor.h"
 #include "statement_exporter.h"
 #include "transaction_history.h"
 
@@ -38,6 +39,7 @@ int main() {
     const std::string& latestTransaction = history.getTransaction(2);
     const double previousBalance = getPreviousBalance();
     const double averageFee = calculateAverageTransactionFee(7.50, 0);
+    const bool receiptProcessed = processTransactionReceipt("RCPT-1001", 12.50);
     const bool statementExported = exportAccountStatement(
         "account_statement.txt",
         account.getAccountNumber().c_str(),
@@ -90,6 +92,10 @@ int main() {
 
     std::cout << "Average transaction fee: "
               << averageFee
+              << '\n';
+
+    std::cout << "Receipt processed: "
+              << receiptProcessed
               << '\n';
 
     std::cout << "Statement export successful: "
