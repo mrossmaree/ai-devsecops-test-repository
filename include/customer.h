@@ -12,6 +12,7 @@ public:
 
     [[nodiscard]] const std::string& getCustomerId() const;
     [[nodiscard]] const std::string& getName() const;
+    [[nodiscard]] std::string createDisplayName() const;
 
 private:
     static bool isValidName(const std::string& name);

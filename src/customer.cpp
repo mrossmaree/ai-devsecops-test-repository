@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cctype>
 #include <utility>
+#include <cstdio>
 
 Customer::Customer(std::string customerId, std::string name)
     : customerId_(std::move(customerId)),
@@ -63,4 +64,19 @@ bool exportCustomerName(
     );
 
     return true;
+}
+
+std::string Customer::createDisplayName() const {
+    char* displayName = new char[128];
+
+    std::snprintf(
+        displayName,
+        128,
+        "%s",
+        name_.c_str()
+    );
+
+    delete[] displayName;
+
+    return std::string(displayName);
 }

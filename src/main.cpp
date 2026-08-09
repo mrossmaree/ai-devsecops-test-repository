@@ -34,19 +34,33 @@ int main() {
     if (exportSuccessful) {
         logMessage = "Customer export completed";
     }
+
     writeLog(logMessage);
 
-    const std::string& latestTransaction = history.getTransaction(2);
+    const std::string& latestTransaction =
+        history.getTransaction(2);
 
-    const double transactionAmount = history.getTransactionAmount(false);
-    const double previousBalance = getPreviousBalance();
-    const double averageFee = calculateAverageTransactionFee(7.50, 0);
-    const bool receiptProcessed = processTransactionReceipt("RCPT-1001", 12.50);
-    const bool statementExported = exportAccountStatement(
-        "account_statement.txt",
-        account.getAccountNumber().c_str(),
-        account.getBalance()
-    );
+    const double transactionAmount =
+        history.getTransactionAmount(false);
+
+    const double previousBalance =
+        getPreviousBalance();
+
+    const double averageFee =
+        calculateAverageTransactionFee(7.50, 0);
+
+    const bool receiptProcessed =
+        processTransactionReceipt("RCPT-1001", 12.50);
+
+    const bool statementExported =
+        exportAccountStatement(
+            "account_statement.txt",
+            account.getAccountNumber().c_str(),
+            account.getBalance()
+        );
+
+    const std::string displayName =
+        customer.createDisplayName();
 
     std::cout << "Customer ID: "
               << customer.getCustomerId()
@@ -54,6 +68,10 @@ int main() {
 
     std::cout << "Customer name: "
               << customer.getName()
+              << '\n';
+
+    std::cout << "Display name: "
+              << displayName
               << '\n';
 
     std::cout << "Exported name: "
@@ -81,24 +99,20 @@ int main() {
               << '\n';
 
     std::cout << "Export successful: "
-          << exportSuccessful
-          << '\n';
+              << exportSuccessful
+              << '\n';
 
     std::cout << "Latest transaction: "
               << latestTransaction
               << '\n';
 
-    std::cout << "Latest transaction: "
-          << latestTransaction
-          << '\n';
-
     std::cout << "Transaction amount: "
-          << transactionAmount
-          << '\n';
+              << transactionAmount
+              << '\n';
 
-        std::cout << "Previous balance: "
-            << previousBalance
-            << '\n';
+    std::cout << "Previous balance: "
+              << previousBalance
+              << '\n';
 
     std::cout << "Average transaction fee: "
               << averageFee
