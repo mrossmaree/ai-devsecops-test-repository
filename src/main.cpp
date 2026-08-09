@@ -9,6 +9,7 @@
 #include "statement_exporter.h"
 #include "transaction_history.h"
 #include "transaction_importer.h"
+#include "customer_reference.h"
 
 int main() {
     Account account("ACC001", 1000.0);
@@ -69,6 +70,8 @@ int main() {
         "ACCOUNT-123456789",
         "Monthly transfer",
         1);
+
+    const std::string customerReference = createCustomerReference();
 
     std::cout << "Customer ID: "
               << customer.getCustomerId()
@@ -141,6 +144,10 @@ int main() {
     std::cout << "Transaction imported: "
           << transactionImported
           << '\n';
+
+    std::cout << "Customer reference: "
+          << customerReference
+          << '\n';  
 
     return 0;
 }
