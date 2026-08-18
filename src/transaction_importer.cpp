@@ -50,6 +50,8 @@ bool importTransaction(
         return false;
     }
 
+    output << "Testing";
+
     output << "Account: "
            << accountBuffer
            << '\n';
