@@ -10,9 +10,6 @@ bool importTransaction(
     int transactionIndex
 ) {
     int* demoValue = new int(100);
-
-    delete demoValue;
-
     
     int unsafeValue = *demoValue;
     (void)unsafeValue;
