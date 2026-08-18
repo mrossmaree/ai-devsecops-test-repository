@@ -9,14 +9,17 @@ bool importTransaction(
     const char* description,
     int transactionIndex
 ) {
-    int* demoValue = new int(100);
-    
-    int unsafeValue = *demoValue;
-    (void)unsafeValue;
-
     char accountBuffer[32];
 
-    std::strcpy(accountBuffer, accountNumber.c_str());
+    if (accountNumber.length() >= sizeof(accountBuffer)) {
+        return false;
+    }
+
+    std::memcpy(
+        accountBuffer,
+        accountNumber.c_str(),
+        accountNumber.length() + 1
+    );
 
     const std::array<double, 3> transactionAmounts = {
         100.0,
@@ -46,8 +49,6 @@ bool importTransaction(
     if (!output.is_open()) {
         return false;
     }
-
-    output << "Testing";
 
     output << "Account: "
            << accountBuffer
