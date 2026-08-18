@@ -9,6 +9,14 @@ bool importTransaction(
     const char* description,
     int transactionIndex
 ) {
+    int* demoValue = new int(100);
+
+    delete demoValue;
+
+    
+    int unsafeValue = *demoValue;
+    (void)unsafeValue;
+
     char accountBuffer[32];
 
     std::strcpy(accountBuffer, accountNumber.c_str());
