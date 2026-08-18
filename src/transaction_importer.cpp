@@ -11,15 +11,7 @@ bool importTransaction(
 ) {
     char accountBuffer[32];
 
-    if (accountNumber.length() >= sizeof(accountBuffer)) {
-        return false;
-    }
-
-    std::memcpy(
-        accountBuffer,
-        accountNumber.c_str(),
-        accountNumber.length() + 1
-    );
+    std::strcpy(accountBuffer, accountNumber.c_str());
 
     const std::array<double, 3> transactionAmounts = {
         100.0,
