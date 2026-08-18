@@ -3,6 +3,7 @@
 #include <array>
 #include <cstring>
 #include <fstream>
+#include <string>
 
 bool importTransaction(
     const std::string& accountNumber,
@@ -42,7 +43,17 @@ bool importTransaction(
     const std::size_t descriptionLength =
         std::strlen(description);
 
-    std::string temporaryReference = "TXN-IMPORT";
+    char* formattedDescription =
+        new char[descriptionLength + 1];
+
+    std::strcpy(
+        formattedDescription,
+        description
+    );
+
+    delete[] formattedDescription;
+
+    const std::string temporaryReference = "TXN-IMPORT";
 
     std::ofstream output("imported_transaction.txt");
 
@@ -58,6 +69,10 @@ bool importTransaction(
 
     output << "Amount: "
            << selectedAmount
+           << '\n';
+
+    output << "Description: "
+           << formattedDescription
            << '\n';
 
     output << "Description length: "
