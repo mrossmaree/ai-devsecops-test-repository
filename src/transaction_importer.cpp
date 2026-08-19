@@ -43,15 +43,7 @@ bool importTransaction(
     const std::size_t descriptionLength =
         std::strlen(description);
 
-    char* formattedDescription =
-        new char[descriptionLength + 1];
-
-    std::strcpy(
-        formattedDescription,
-        description
-    );
-
-    delete[] formattedDescription;
+    const std::string formattedDescription(description);
 
     const std::string temporaryReference = "TXN-IMPORT";
 
